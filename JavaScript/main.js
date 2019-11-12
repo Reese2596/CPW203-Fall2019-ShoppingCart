@@ -14,12 +14,19 @@ function initializeBuyButtons() {
 }
 function buyProduct() {
     //console.log("You clicked buy");
+    var prod = getProduct();
+    saveProductToCart(prod);
+}
+/**
+ * get the product object of the current selected buy product
+ */
+function getProduct() {
     var currBuyBtn = this;
-    /* console.log("The current div");
-    console.log(currBuyBtn); */
+    console.log("The current div");
+    console.log(currBuyBtn);
     var currProdDiv = currBuyBtn.parentElement;
-    /* console.log("The parent Product div");
-    console.log(currProdDiv); */
+    console.log("The parent Product div");
+    console.log(currProdDiv);
     ///Grab the product off the page 
     ///add title, price, etc.
     var prod = new Product();
@@ -29,8 +36,9 @@ function buyProduct() {
     price = price.replace("$", "");
     prod.price = parseFloat(price);
     prod.discription = currProdDiv.querySelector("div.description").innerHTML;
-    /*alert("Do you want to add " + prod.title + ", " + prod.discription
-        + "to cart for " + prod.price);*/
+    return prod;
+}
+function saveProductToCart(prod) {
 }
 /**
  * Represents a single shopping cart item

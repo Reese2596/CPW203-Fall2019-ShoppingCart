@@ -17,13 +17,21 @@ function initializeBuyButtons() {
 
 function buyProduct() {
     //console.log("You clicked buy");
-    let currBuyBtn = <HTMLElement> this;
-    /* console.log("The current div");
-    console.log(currBuyBtn); */
+    let prod = getProduct();
+    saveProductToCart(prod);
+}
+
+/**
+ * get the product object of the current selected buy product
+ */
+function getProduct() {
+    let currBuyBtn = <HTMLElement>this;
+    console.log("The current div");
+    console.log(currBuyBtn);
 
     let currProdDiv = currBuyBtn.parentElement;
-    /* console.log("The parent Product div");
-    console.log(currProdDiv); */
+    console.log("The parent Product div");
+    console.log(currProdDiv);
 
     ///Grab the product off the page 
     ///add title, price, etc.
@@ -34,8 +42,10 @@ function buyProduct() {
     price = price.replace("$", "");
     prod.price = parseFloat(price);
     prod.discription = currProdDiv.querySelector("div.description").innerHTML;
+    return prod;
+}
 
-    /*alert("Do you want to add " + prod.title + ", " + prod.discription 
-        + "to cart for " + prod.price);*/
+function saveProductToCart(prod:Product):Product[]{
+    
 }
 
