@@ -12,6 +12,7 @@ div.product{
     border: 2px solid black;
     padding: .75%;
     width: 90%;
+    margin-bottom: 10px;
 }
 
 .buy, .price{
